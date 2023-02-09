@@ -15,3 +15,4 @@
 12-directory_permissions - Create a directory with permissions.
 13-change_group - Change the group owner 
 100-chnage_owner_and_group - Changes the owner and group in one command.
+101-symbolic_link_permissions - Change the owner and the group owner of a directory.
