@@ -1,4 +1,5 @@
-Shell permissions Scrips.
+
+0;276;0cShell permissions Scrips.
 1-who_am_i  - Prints the effective username of the current user
 0-iam_betty - Switches the current user to the user betty.
 2-groups - Prints all the groups the current user is part of.
@@ -10,3 +11,4 @@ Shell permissions Scrips.
 8-James Bond - Strips user and groups of all permissions and grants others all permission.
 9-John_Doe - Gives user all permissions, gropus read and execute permissions and others write and execute permissions.
 10-mirror_permissions - Mirros permissions
+11-directories_permissions - Adds execute permissions to all subdirectories of the current directory for the owner, the group owner and others.
