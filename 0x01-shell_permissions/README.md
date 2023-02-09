@@ -12,3 +12,5 @@
 9-John_Doe - Gives user all permissions, gropus read and execute permissions and others write and execute permissions.
 10-mirror_permissions - Mirros permissions
 11-directories_permissions - Adds execute permissions to all subdirectories of the current directory for the owner, the group owner and others.
+12-directory_permissions - Create a directory with permissions.
+
