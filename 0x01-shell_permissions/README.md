@@ -3,5 +3,7 @@ Shell permissions Scrips.
 0-iam_betty - Switches the current user to the user betty.
 2-groups - Prints all the groups the current user is part of.
 3-new_owner - Changes the owner of the file.
+4-empty - Creates an empty file
+
 
 
