@@ -14,3 +14,4 @@
 11-directories_permissions - Adds execute permissions to all subdirectories of the current directory for the owner, the group owner and others.
 12-directory_permissions - Create a directory with permissions.
 13-change_group - Change the group owner 
+100-chnage_owner_and_group - Changes the owner and group in one command.
