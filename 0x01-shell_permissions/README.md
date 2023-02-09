@@ -5,7 +5,7 @@ Shell permissions Scrips.
 3-new_owner - Changes the owner of the file.
 4-empty - Creates an empty file
 5-execute - Add execute permission to the owner
-
+6-multiple_permissions - Adds execute permission to the owner and the group owner, and read permission to other users.
 
 
 
