@@ -6,3 +6,4 @@
 * Confused smiley - Prints a confused smiley
 * 2-hellofile - Displays the files in /etc/passwd
 * 3-twofiles - Display contents of two files in one command.
+* 4-lastlines - Displaying the 10 last lines of /etc/passwd
