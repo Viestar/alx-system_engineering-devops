@@ -4,3 +4,4 @@
 
 * Hello world   -  Prints hello world by a newline to the standard output.
 * Confused smiley - Prints a confused smiley
+* 2-hellofile - Displays the files in /etc/passwd
