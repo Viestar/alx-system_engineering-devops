@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $(( $($PATH ls | cut -d " " -f 3 | tr -c -d / | wc -c ) -l))
+echo $(( $(echo $PATH | tr -c -d '/' | wc -c )-1 ))
