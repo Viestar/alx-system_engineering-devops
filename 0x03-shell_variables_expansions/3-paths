@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $(( $(whereis ls | cut -d " " -f 3 | tr -c -d / | wc -c ) -l))
+echo $(( $($PATH ls | cut -d " " -f 3 | tr -c -d / | wc -c ) -l))
