@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# displays numbers from 1 to 20 except in case of after 1. 4 - bad luck from Chine,
+# 2. 9 bad luck from Japan, 3. 17 bad luck from Italy.
+
+INDEX=1
+while [ $INDEX -le 20 ]
+do
+    case $INDEX in
+        4)
+	    echo $INDEX
+	    echo "bad luck from China"
+	    ;;
+	9)
+	    echo $INDEX
+	    echo "bad luck from Japan"
+	    ;;
+	17)
+	    echo $INDEX
+	    echo "bad luck from Italy"
+	    ;;
+	*)
+	    echo $INDEX
+	    ;;
+    esac
+
+    (( INDEX+=1 ))
+done
