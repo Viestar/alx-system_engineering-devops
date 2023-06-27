@@ -13,4 +13,4 @@ Task | Files | Description
 [7] | [7-clock](./7-clock) | Displays time counting 1 - 59 minutes for 12 hours and 59 minutes.
 [8] | [8-for_ls](./8-for_ls) | Displays the current working directory contents.
 [9] | [9-to_file_or_not_to_file](./9-to_file_or_not_to_file) | Gives information about a file called "school".
- 
+[10] | [10-fizzbuzz](./10-fizzbuzz) | Displays numbers 1 - 100 the fizzbuzz way.
