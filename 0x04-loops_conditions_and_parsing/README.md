@@ -14,3 +14,4 @@ Task | Files | Description
 [8] | [8-for_ls](./8-for_ls) | Displays the current working directory contents.
 [9] | [9-to_file_or_not_to_file](./9-to_file_or_not_to_file) | Gives information about a file called "school".
 [10] | [10-fizzbuzz](./10-fizzbuzz) | Displays numbers 1 - 100 the fizzbuzz way.
+[11] | [100-read_and_cut](./100-read_and_cut) | Displays Username, file and path for /etc/passwd.
