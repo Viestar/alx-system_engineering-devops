@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# displays a story with each line of /etc/passwd.
+
+exec 3< /etc/passwd
+while IFS=: read -r user md id gang se pa hpath
+do
+    echo "The user $user is part of the $gang gang, lives in $pa and rides $hpath. $id's place is protected by the passcode $md, more info about the user here: $se"
+done <&3
+
+#Close file
+exec 3<&-
