@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Displays the IP and HTTP code for each visitor from the parsed apache logs file.
+
+awk '{print $1,$9}' apache-access.log

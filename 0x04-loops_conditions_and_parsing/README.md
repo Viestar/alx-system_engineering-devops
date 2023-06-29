@@ -16,4 +16,6 @@ Task | Files | Description
 [10] | [10-fizzbuzz](./10-fizzbuzz) | Displays numbers 1 - 100 the fizzbuzz way.
 [11] | [100-read_and_cut](./100-read_and_cut) | Displays Username, file and path for /etc/passwd.
 [12] | [101-tell_the_story_of_passwd](./1101-tell_the_story_of_passwd) | Displays contents of /etc/passwd using Internal field separator IFS.
+[13] | [102-lets_parse_apache_logs](./102-lets_parse_apache_logs) | Displays the IP and HTTP code for each visitor from the parsed apache logs file.
+
 
