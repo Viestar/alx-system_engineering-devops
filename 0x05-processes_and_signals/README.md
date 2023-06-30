@@ -8,4 +8,5 @@ Task | Code | Description
 [2] | [show_your_bash_pid](./2-show_your_bash_pid) | Displays lines containing the bash word, thus allowing you to easily get the PID of your Bash process.
 [3] | [show_your_bash_pid_made_easy](./3-show_your_bash_pid_made_easy) | Displays the PID, along with the process name, of processes whose name contain the word
 [4] | [to_infinity_and_beyond](./4-to_infinity_and_beyond) | Displays To infinity and beyond indefinitely.
-[5] | [5-dont_stop_me_now ](./5-dont_stop_me_now ) | Bash script that stops 4-to_infinity_and_beyond process, uses kill
+[5] | [dont_stop_me_now ](./5-dont_stop_me_now ) | Bash script that stops 4-to_infinity_and_beyond process, uses kill
+[6] | [stop_me_if_you_can](./6-stop_me_if_you_can) | Bash Script that stops 4-to_infinity_and_beyond process.
