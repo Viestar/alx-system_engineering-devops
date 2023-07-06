@@ -3,9 +3,6 @@
 ## Table of contents
 Task | Code | Description
 -----|------ | -----------
-[0] | [OSI_model](./0-OSI_model) |  Definition of OSI and how it is organised.
-[1] | [types_of_network](./1-types_of_network) |  Types of network i.e LAN and WAN 
-[2] | [MAC_and_IP_address](./2-MAC_and_IP_address) |  Definition of MAC and the IP addresses. 
-[3] | [UDP_and_TCP](./3-UDP_and_TCP) |  Difference between UDP and TCP 
-[4] | [TCP_and_UDP_ports](./4-TCP_and_UDP_ports) |  BAsh script that prints listening ports and their PID
-[5] | [is_the_host_on_the_network](./5-is_the_host_on_the_network) |  BAsh script that fetches an IP address and pings it 5 times.
+[0] | [change_your_home_IP](./0-change_your_home_IP) |  Resolves localhost and facebook.com .
+[1] | [show_attached_IPs](./1-show_attached_IPs) | Bash script that displays all active IPv4 IPs on the machine it’s executed on
+[2] | [port_listening_on_localhost](./100-port_listening_on_localhost) |  Types of network i.e LAN and WAN 
