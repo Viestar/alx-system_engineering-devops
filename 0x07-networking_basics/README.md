@@ -4,3 +4,4 @@
 Task | Code | Description
 -----|------ | -----------
 [0] | [OSI_model](./0-OSI_model) |  Definition of OSI and how it is organised.
+[1] | [types_of_network](./1-types_of_network) |  Types of network i.e LAN and WAN 
