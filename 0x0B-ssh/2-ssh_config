@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Script that generates the RSA key.
+
+Host 34.237.91.110
+    IdentityFile ~/.ssh/school
+    PasswordAuthentication no
