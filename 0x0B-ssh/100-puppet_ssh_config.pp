@@ -1,11 +1,9 @@
 # client SSH configuration file so that you can connect to a server without typing a password
-file { '/home/your_username/.ssh/config':
+file { '/home/Viestar/.ssh/config':
   ensure  => present,
-  owner   => 'your_username',
-  group   => 'your_group',
   mode    => '0600',
   content => "
-    Host your_server_ip_here
+    Host 34.237.91.110
         IdentityFile ~/.ssh/school
         PasswordAuthentication no
   ",
