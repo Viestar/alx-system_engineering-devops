@@ -1,10 +1,14 @@
 # client SSH configuration file so that you can connect to a server without typing a password
-file { '/home/Viestar/.ssh/config':
-  ensure  => present,
-  mode    => '0600',
-  content => "
-    Host 34.237.91.110
-        IdentityFile ~/.ssh/school
-        PasswordAuthentication no
-  ",
+
+include stdlib
+file_line { 'Declare identity file':
+  path    => '/etc/ssh/ssh_config',
+  line    => '    IdentityFile ~/.ssh/school',
+  replace => true,
+}
+
+file_line { 'Turn off passwd auth':
+  path    => '/etc/ssh/ssh_config',
+  line    => '    PasswordAuthentication no',
+  replace => true,
 }
