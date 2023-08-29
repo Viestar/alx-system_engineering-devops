@@ -12,8 +12,13 @@ else
     exit 1
 fi
 
-# Disable strict host key checking for scp
-scp_cmd="scp -o StrictHostKeyChecking=no -i $path_to_ssh_key $path_to_file $username@$ip:~/"
+# Check if PATH_TO_SSH_KEY is provided, else use the default SSH key path
+if [ -z "$PATH_TO_SSH_KEY" ]; then
+    PATH_TO_SSH_KEY="$HOME/.ssh/id_rsa"
+fi
+
+# Disable strict host key checking
+SCP_OPTIONS="-o StrictHostKeyChecking=no -i $PATH_TO_SSH_KEY"
 
 # Transfer the file using scp
-$scp_cmd
+scp $SCP_OPTIONS "$PATH_TO_FILE" "$USERNAME"@"$IP":~/
