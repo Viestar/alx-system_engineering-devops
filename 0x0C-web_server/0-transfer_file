@@ -3,22 +3,9 @@
 
 # Extracting parameters Incase right number of arguments is passed.
 if [ "$#" -eq 4 ]; then
-    path_to_file="$1"
-    ip="$2"
-    username="$3"
-    path_to_ssh_key="$4"
+    # scp -o StrictHostKeyChecking=no "$1" "$3@$2":~/
+    scp -i "$4" -o StrictHostKeyChecking=no "$1" "$3@$2":~/
 else
     echo "Usage: $0 PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
     exit 1
 fi
-
-# Check if PATH_TO_SSH_KEY is provided, else use the default SSH key path
-if [ -z "$PATH_TO_SSH_KEY" ]; then
-    PATH_TO_SSH_KEY="$HOME/.ssh/id_rsa"
-fi
-
-# Disable strict host key checking
-SCP_OPTIONS="-o StrictHostKeyChecking=no -i $PATH_TO_SSH_KEY"
-
-# Transfer the file using scp
-scp $SCP_OPTIONS "$PATH_TO_FILE" "$USERNAME"@"$IP":~/
