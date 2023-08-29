@@ -1,45 +1,11 @@
 #!/usr/bin/env bash
 # This script transfers a file from a client to a server using scp
 
-#!/bin/bash
-
-# Check if less than 3 parameters were passed
-if [ $# -lt 3 ]; then
-    echo "Usage: $0 PATH_TO_FILE IP USERNAME [PATH_TO_SSH_KEY]"
-    exit 1
-fi
-
-# Assign parameters to variables
-PATH_TO_FILE="$1"
-IP="$2"
-USERNAME="$3"
-PATH_TO_SSH_KEY="$4"
-
-# Check if PATH_TO_SSH_KEY is provided, else use the default SSH key path
-if [ -z "$PATH_TO_SSH_KEY" ]; then
-    PATH_TO_SSH_KEY="$HOME/.ssh/id_rsa"
-fi
-
-# Disable strict host key checking
-SCP_OPTIONS="-o StrictHostKeyChecking=no -i $PATH_TO_SSH_KEY"
-
-# Transfer the file using scp
-scp "$SCP_OPTIONS" "$PATH_TO_FILE" "$USERNAME"@"$IP":~/
-
-echo "File transferred successfully!"
-
 # Extracting parameters Incase right number of arguments is passed.
-# if [ "$#" -lt 4 ]; then
-#     scp -o StrictHostKeyChecking=no "$1" "$3@$2":~/
-# elif [ "$#" -lt 3 ]; then
-# 	echo "Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
-# else
-# 	scp -i "$4" -o StrictHostKeyChecking=no "$1" "$3@$2":~/
-# fi
-# if [ "$#" -lt 3 ]; then
-# 	echo "Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
-# elif [ "$#" -lt 4 ]; then
-# 	scp -o StrictHostKeyChecking=no "$1" "$3@$2":~/
-# else
-# 	scp -i "$4" -o StrictHostKeyChecking=no "$1" "$3@$2":~/
-# fi
+if [ "$#" -lt 4 ]; then
+    scp -o StrictHostKeyChecking=no "$1" "$3@$2":~/
+elif [ "$#" -lt 3 ]; then
+	echo "Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
+else
+	scp -i "$4" -o StrictHostKeyChecking=no "$1" "$3@$2":~/
+fi
