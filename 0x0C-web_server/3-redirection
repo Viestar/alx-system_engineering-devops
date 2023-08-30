@@ -1,16 +1,28 @@
 #!/usr/bin/env bash
 # This script configuring Nginx for a permanent redirection
 
-echo "server {
+sudo apt-get -y update
+sudo apt-get -y install nginx
+echo 'Hello World!' | sudo tee /var/www/html/index.html
+sudo service nginx start
+
+
+# Configure Nginx for redirection
+cat <<EOF | sudo tee /etc/nginx/sites-available/default > /dev/null
+server {
     listen 80;
+
     server_name _;
-    location /redirect_me {
-        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+
+    location / {
+        if (\$request_uri = "/redirect_me") {
+            return 301 http://example.com/new_location;
+        }
+        root /var/www/html;
+        index index.html;
     }
-}" > /etc/nginx/sites-available/redirect_me
+}
+EOF
 
-# Create a symbolic link to enable the new configuration
-ln -s /etc/nginx/sites-available/redirect_me /etc/nginx/sites-enabled/
-
-# Reload nginx configuration
-service nginx reload
+# Restart Nginx
+sudo systemctl restart nginx
