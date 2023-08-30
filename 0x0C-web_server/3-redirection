@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 # This script configuring Nginx for a permanent redirection
-
+sudo apt-get -y update
+sudo apt-get -y install nginx
+echo 'Hello World!' | sudo tee /var/www/html/index.html
+sudo service nginx start
 sudo echo  "server {
     listen 80;
     server_name _;
