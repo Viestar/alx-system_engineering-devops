@@ -5,12 +5,24 @@ sudo apt-get -y update
 sudo apt-get -y install nginx
 echo 'Hello World!' | sudo tee /var/www/html/index.html
 sudo service nginx start
-echo  "server {
+
+
+# Configure Nginx for redirection
+cat <<EOF | sudo tee /etc/nginx/sites-available/default > /dev/null
+server {
     listen 80;
+
     server_name _;
-    location /redirect_me {
-        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+
+    location / {
+        if (\$request_uri = "/redirect_me") {
+            return 301 http://example.com/new_location;
+        }
+        root /var/www/html;
+        index index.html;
     }
-}" > /etc/nginx/sites-available/redirect_me
-sudo ln -s /etc/nginx/sites-available/redirect_me /etc/nginx/sites-enabled/
-sudo service nginx reload
+}
+EOF
+
+# Restart Nginx
+sudo systemctl restart nginx
