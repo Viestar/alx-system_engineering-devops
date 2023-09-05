@@ -1,5 +1,4 @@
-#!/usr/bin/env bash\
-
+#!/usr/bin/env bash
 
 # Function to install HAProxy
 install_haproxy() {
