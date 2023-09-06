@@ -1,60 +1,24 @@
 #!/usr/bin/env bash
 
-# Function to install HAProxy
-install_haproxy() {
-    sudo apt update
-    sudo apt install -y haproxy
-}
 
-# Function to configure HAProxy
-configure_haproxy() {
-    # Backup the original HAProxy configuration file
-    sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.bak
+# Configures a new Ubuntu server with a HAproxy load-balancer
+apt-get -y install software-properties-common
+add-apt-repository -y ppa:vbernat/haproxy-1.8
+apt-get -y update
+apt-get -y install haproxy=1.8.\*
+sed -i '/errorfile 504/a listen thelaura' /etc/haproxy/haproxy.cfg
+sed -i '/listen thelaura/a         bind :80' /etc/haproxy/haproxy.cfg
+sed -i '/bind :80/a         mode http' /etc/haproxy/haproxy.cfg
+sed -i '/mode http/a         server 652-web-01 35.190.145.187:80 check' /etc/haproxy/haproxy.cfg
+sed -i '/server 652-web-01 35.190.145.187:80 check/a         server 652-web-02 35.196.156.157:80 check' /etc/haproxy/haproxy.cfg
+sed -i '/#EXTRAOPTS="-de -m 16"/a ENABLED=1' /etc/default/haproxy
+service haproxy start
 
-    # Create a new HAProxy configuration file
-    cat <<EOL | sudo tee /etc/haproxy/haproxy.cfg > /dev/null
-global
-    log /dev/log    local0
-    log /dev/log    local1 notice
-    chroot /var/lib/haproxy
-    stats socket /run/haproxy/admin.sock mode 660 level admin
-    stats timeout 30s
-    user haproxy
-    group haproxy
-    daemon
+apt-get -y install software-properties-common
+add-apt-repository -y ppa:vbernat/haproxy-2.6
+apt-get -y update
+apt-get -y install haproxy
 
-defaults
-    log global
-    mode http
-    option httplog
-    option dontlognull
-    timeout connect 5000
-    timeout client 50000
-    timeout server 50000
-
-frontend http-in
-    bind *:80
-    default_backend web-servers
-
-backend web-servers
-    balance roundrobin
-    server web-01 [STUDENT_ID]-web-01:80 check
-    server web-02 [STUDENT_ID]-web-02:80 check
-EOL
-
-    # Test the HAProxy configuration
-    sudo haproxy -c -f /etc/haproxy/haproxy.cfg
-
-    # Restart HAProxy to apply the new configuration
-    sudo systemctl restart haproxy
-}
-
-# Function to set correct hostnames
-
-# Main execution
-
-# Install HAProxy
-install_haproxy
-
-# Configure HAProxy
-configure_haproxy
+sed -i -e '$aENABLED=1\n' /etc/default/haproxy
+sed -i -e '$a\listen balancer\n\tbind :80\n\tbalance roundrobin\n\tserver 36768-web-01 52.90.0.89 check\n\tserver 36768-web-02 34.229.255.199 check\n' /etc/haproxy/haproxy.cfg
+service haproxy restart
