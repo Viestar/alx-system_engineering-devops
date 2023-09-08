@@ -5,7 +5,7 @@ info_domain () {
 	sub_d=$(echo "$answer" | awk -F'.' '{print $1}')
 	record=$(echo "$answer" | awk '{print $4}')
 	destination=$(echo "$answer" | awk '{print $5}')
-
+	echo "The subdomain $sub_d is a $record record and points to $destination"
 }
 
 if [ $# -eq 2 ]; then
