@@ -8,9 +8,9 @@ info_domain () {
 	echo "The subdomain $sub_d is a $record record and points to $destination"
 }
 
-if [ $# -eq 2 ]; then
+if [ $# -gt 1 ]; then
 	info_domain "$2.$1"
-elif [ $# -eq 1 ]; then
+elif [ $# -lt 2 ]; then
     info_domain "www.$1"
 	info_domain "lb-01.$1"
 	info_domain "web-01.$1"
