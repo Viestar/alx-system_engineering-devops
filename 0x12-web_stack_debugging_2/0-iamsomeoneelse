@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# logins in and displays current user
+if [ "$#" -eq 1 ]; then
+    sudo -u "$1" 'whoami'
+else
+    exit 1
+fi
