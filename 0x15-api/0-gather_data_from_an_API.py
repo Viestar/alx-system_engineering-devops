@@ -28,7 +28,7 @@ def employee_todo_progress(emp_id):
                 comp_t += 1
 
         # Formatting and printing the data to standard output
-        print(f"Employee {emp_name} is done with tasks ({comp_t}/{total_t}):")
+        print(f"Employee {emp_name} is done with tasks({comp_t}/{total_t}):")
         for task in comp_tasks_list:
             print(f"\t {task['title']}")
 
