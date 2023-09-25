@@ -15,20 +15,20 @@ def employee_todo_progress(emp_id):
     todos = requests.get('https://jsonplaceholder.typicode.com/todos')
     todos = todos.json()
 
-    todoUser = {}
-    taskList = []
+    user_todo = {}
+    list_task = []
 
     for task in todos:
         if task.get('userId') == int(userId):
-            taskDict = {"task": task.get('title'),
-                        "completed": task.get('completed'),
-                        "username": user.json().get('username')}
-            taskList.append(taskDict)
-    todoUser[userId] = taskList
+            dict_list = {"task": task.get('title'),
+                         "completed": task.get('completed'),
+                         "username": user.json().get('username')}
+            list_task.append(dict_list)
+    user_todo[userId] = list_task
 
     filename = userId + '.json'
     with open(filename, mode='w') as file:
-        json.dump(todoUser, file)
+        json.dump(user_todo, file)
 
 
 if __name__ == "__main__":
