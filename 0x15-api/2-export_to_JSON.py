@@ -7,9 +7,9 @@ import requests
 import sys
 
 
-def employee_todo_progress(emp_id):
+def employee_todo_progress():
     """ Exports emplooyee data to a json """
-    userId = emp_id
+    userId = sys.argv[1]
     user = requests.get("https://jsonplaceholder.typicode.com/users/{}"
                         .format(userId))
     todos = requests.get('https://jsonplaceholder.typicode.com/todos')
@@ -34,6 +34,4 @@ def employee_todo_progress(emp_id):
 if __name__ == "__main__":
     if len(sys.argv) != 2:
         sys.exit(1)
-
-    emp_id = (sys.argv[1])
-    employee_todo_progress(int(emp_id))
+    employee_todo_progress()
