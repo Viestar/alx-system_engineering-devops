@@ -33,7 +33,6 @@ def employee_todo_progress(emp_id):
             print(f"\t {task['title']}")
 
     except requests.exceptions.RequestException as int_error:
-        print(f"Error: {int_error}")
         sys.exit(1)
 
 
