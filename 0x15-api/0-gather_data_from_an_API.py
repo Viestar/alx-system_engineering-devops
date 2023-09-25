@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """ Uses REST API to return information about an Employee """
 import requests
 
