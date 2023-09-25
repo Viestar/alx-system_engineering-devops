@@ -6,7 +6,7 @@ import requests
 
 
 def employee_todo_progress(emp_id):
-
+    """ outputs employees to do list """
     api_url = "https://jsonplaceholder.typicode.com"
     todo_url = f"{api_url}/todos?userId={emp_id}"
     user_url = f"{api_url}/users/{emp_id}"
