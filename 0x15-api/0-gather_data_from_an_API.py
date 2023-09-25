@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """ Uses REST API to return information about an Employee """
-import sys
-
 import requests
+
+import sys
 
 
 def employee_todo_progress(emp_id):
