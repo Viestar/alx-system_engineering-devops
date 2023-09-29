@@ -21,7 +21,7 @@ def employee_todo_progress(emp_id):
         # Fetching todo list
         todo_response = requests.get(todo_url)
         todo_list = todo_response.json()
-        tasks_list = [task for task in todo_list]
+        tasks_list = [tas for tas in todo_list]
 
         # Writing data to the csv file
         csv_filename = f"{uid}.csv"
@@ -29,9 +29,8 @@ def employee_todo_progress(emp_id):
             csv_writer = csv.writer(csv_file, delimiter=',', quotechar='"',
                                     quoting=csv.QUOTE_ALL, lineterminator='\n')
             for task in tasks_list:
-                if task['userId'] == uid:
-                    csv_writer.writerow(
-                        [uid, name, str(task['completed']), task['title']])
+                csv_writer.writerow(
+                    [uid, name, str(task['completed']), task['title']])
 
     except requests.exceptions.RequestException as int_error:
         sys.exit(1)
