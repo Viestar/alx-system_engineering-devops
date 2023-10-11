@@ -6,7 +6,8 @@ import requests
 def count_words(subreddit, word_list, word_count={}, after=None):
     """Queries Reddit API for word_list occurrences in hot posts titles """
 
-    user_info = requests.get(f"https://www.reddit.com/r/{subreddit}/hot.json",
+    user_info = requests.get("https://www.reddit.com/r/{}/hot.json"
+                             .format(subreddit),
                              params={"after": after},
                              headers={"User-Agent": "My-User-Agent"},
                              allow_redirects=False)
