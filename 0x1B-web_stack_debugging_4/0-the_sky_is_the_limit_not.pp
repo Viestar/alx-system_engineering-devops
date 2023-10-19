@@ -1,4 +1,4 @@
-# increase the number of request to handle
+# Sky is the limit, let's bring that limit higher 'increase-open-file-limit':
 
 exec { 'increase-open-file-limit':
   onlyif  => 'test -e /etc/default/nginx',
