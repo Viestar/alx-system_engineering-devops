@@ -1,3 +1,11 @@
 #!/usr/bin/env bash
 # Kills gunicorn worker processes with no downtime
-pkill -HUP gunicorn
+PID_FILE=/run/hbnb/hbnb.pid
+
+# Check if the PID file exists
+if [ -f "$PID_FILE" ]; then
+    # Send a HUP signal to the Gunicorn master process to trigger a graceful reload
+    kill -HUP $'(cat "$PID_FILE")'
+else
+    exit
+fi
